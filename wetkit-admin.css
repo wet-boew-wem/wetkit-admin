@@ -19,6 +19,11 @@
   display: none;
 }
 
+#node-edit .form-item-title-field-und-0-value label {
+  float: left;
+  margin: 5px 5px 0px 0px;
+}
+
 #node-edit #edit-body .form-type-textarea {
   padding-top: .25em;
 }
@@ -229,6 +234,7 @@
   max-width: 100%;
   height: auto;
   margin-bottom: 0; /* Overrides Bartik's default margin, which is too much */
+  margin: 0px;
 }
 
 #node-edit .field-name-field-featured-image div.image-widget-data {
@@ -270,6 +276,18 @@
 
 #node-edit .form-item-field-featured-image-und-0 > label {
   display: none;
+}
+
+/**
+ * CTools Styling
+ */
+
+#node-edit .ctools-collapsible-content {
+  margin: 10px;
+}
+
+#node-edit .burr-flipped-sidebar-inner .panel-pane:first-child .pane-title {
+  margin: 0px;
 }
 
 /**

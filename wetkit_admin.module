@@ -25,8 +25,8 @@ function wetkit_admin_configure_form($form, &$form_state) {
     '#type' => 'select',
     '#required' => TRUE,
     '#options' => array(
-      '1' => 'Enabled',
-      '0' => 'Disabled',
+      '1' => t('Enabled'),
+      '0' => t('Disabled'),
     ),
     '#default_value' => variable_get('wetkit_admin_machine_name', 0),
     '#description' => t('Do you want to provide an option to specify a machine name (provided by the Default Content module) on the content editing form?'),
@@ -37,8 +37,8 @@ function wetkit_admin_configure_form($form, &$form_state) {
     '#type' => 'select',
     '#required' => TRUE,
     '#options' => array(
-      '1' => 'Enabled',
-      '0' => 'Disabled',
+      '1' => t('Enabled'),
+      '0' => t('Disabled'),
     ),
     '#default_value' => variable_get('wetkit_admin_front_page_and_sticky', 0),
     '#description' => t('Do you want to provide the front page and sticky options on node content?'),
@@ -49,8 +49,8 @@ function wetkit_admin_configure_form($form, &$form_state) {
     '#type' => 'select',
     '#required' => TRUE,
     '#options' => array(
-      '1' => 'Enabled',
-      '0' => 'Disabled',
+      '1' => t('Enabled'),
+      '0' => t('Disabled'),
     ),
     '#default_value' => variable_get('wetkit_admin_link_description', 0),
     '#description' => t('Do you want to provide a description field for a menu item link on the node edit page?'),
@@ -61,8 +61,8 @@ function wetkit_admin_configure_form($form, &$form_state) {
     '#type' => 'select',
     '#required' => TRUE,
     '#options' => array(
-      '1' => 'Enabled',
-      '0' => 'Disabled',
+      '1' => t('Enabled'),
+      '0' => t('Disabled'),
     ),
     '#default_value' => variable_get('wetkit_admin_advanced_plugins', 0),
     '#description' => t('Do you want to enable the advanced Panel plugins in the WetKit pane library? This includes rarely used Panel plugins for such things as view context, token support, and page elements?'),
@@ -172,12 +172,12 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
 
   // Remove the description from the featured image
   if (!empty($form['field_featured_image'])) {
-    $form['field_featured_image']['und'][0]['#description'] = '';
+    $form['field_featured_image'][LANGUAGE_NONE][0]['#description'] = '';
   }
 
   // Hide the featured category field if there are no featured category options
-  if (!empty($form['field_featured_categories']) && $form['field_featured_categories']['und']['#type'] != 'textfield') {
-    if (count($form['field_featured_categories']['und']['#options']) == 0 || (!empty($form['field_featured_categories']['und']['#options']['_none']) && count($form['field_featured_categories']['und']['#options']) == 1)) {
+  if (!empty($form['field_featured_categories']) && $form['field_featured_categories'][LANGUAGE_NONE]['#type'] != 'textfield') {
+    if (count($form['field_featured_categories'][LANGUAGE_NONE]['#options']) == 0 || (!empty($form['field_featured_categories'][LANGUAGE_NONE]['#options']['_none']) && count($form['field_featured_categories'][LANGUAGE_NONE]['#options']) == 1)) {
       $form['field_featured_categories']['#access'] = FALSE;
     }
   }
@@ -309,7 +309,7 @@ function wetkit_admin_menu() {
     'weight' => -8,
     'position' => 'left',
     'page callback' => 'system_admin_menu_block_page',
-    'access arguments' => array('access administration pages'),
+    'access arguments' => array('administer site configuration'),
     'file' => 'system.admin.inc',
     'file path' => drupal_get_path('module', 'system'),
   );
