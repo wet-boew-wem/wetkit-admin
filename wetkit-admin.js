@@ -5,8 +5,8 @@
    */
  Drupal.behaviors.wetkitAdmin = {
    attach: function (context, settings) {
-     var width = $('#node-edit #edit-title').width() - $('#node-edit .form-item-path-alias label').width() - 5;
-     $('#node-edit .form-item-path-alias input').css('width', width);
+     //var width = $('#node-edit #edit-title').width() - $('#node-edit .form-item-path-alias label').width() - 5;
+     //$('#node-edit .form-item-path-alias input').css('width', width);
 
      if ($('#node-edit .form-item-body-und-0-value label').html() == 'Body <span class="form-required" title="This field is required.">*</span>') {
        $('#node-edit .form-item-body-und-0-value label').html('');
