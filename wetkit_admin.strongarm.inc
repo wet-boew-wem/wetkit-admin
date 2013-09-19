@@ -24,5 +24,33 @@ function wetkit_admin_strongarm() {
   $strongarm->value = '3';
   $export['user_admin_role'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'wetkit_admin_advanced_plugins';
+  $strongarm->value = '1';
+  $export['wetkit_admin_advanced_plugins'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'wetkit_admin_front_page_and_sticky';
+  $strongarm->value = '0';
+  $export['wetkit_admin_front_page_and_sticky'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'wetkit_admin_link_description';
+  $strongarm->value = '0';
+  $export['wetkit_admin_link_description'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'wetkit_admin_machine_name';
+  $strongarm->value = '0';
+  $export['wetkit_admin_machine_name'] = $strongarm;
+
   return $export;
 }
