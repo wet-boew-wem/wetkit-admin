@@ -15,11 +15,11 @@ $plugin = array(
 );
 
 /**
-  * Put the output for you pages type in the blocks pages.
-  */
+ * Put the output for you pages type in the blocks pages.
+ */
 function wetkit_admin_overridden_page_templates_content_type_render($subtype, $conf, $panel_args, $context) {
 
-  // Assemble the Overridden Template Data
+  // Assemble the Overridden Template Data.
   $overridden_templates = array();
   $entity_types = array('node', 'taxonomy_term', 'user');
   $count = 30;
@@ -52,7 +52,7 @@ function wetkit_admin_overridden_page_templates_content_type_render($subtype, $c
   }
 
 
-  // Create the Output
+  // Create the Output.
   $pane = new stdClass();
   $pane->title = t('Overridden Page Templates');
   if (!empty($overridden_templates)) {

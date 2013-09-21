@@ -15,13 +15,13 @@ $plugin = array(
 );
 
 /**
-  * Put the output for you categories type in the blocks categories.
-  */
+ * Put the output for you categories type in the blocks categories.
+ */
 function wetkit_admin_taxonomy_content_type_render($subtype, $conf, $panel_args, $context) {
   $pane = new stdClass();
   $pane->title = t('Taxonomy');
 
-  // Build configuration
+  // Build configuration.
   $categories = array();
   foreach (taxonomy_get_vocabularies() as $vocab) {
     $term_count = db_query("SELECT count(*) FROM {taxonomy_term_data} WHERE vid = :vid", array(':vid' => $vocab->vid))->fetchField();

@@ -15,35 +15,35 @@ $plugin = array(
 );
 
 /**
-  * Put the output for you pages type in the blocks pages.
-  */
+ * Put the output for you pages type in the blocks pages.
+ */
 function wetkit_admin_landing_pages_content_type_render($subtype, $conf, $panel_args, $context) {
 
   $pages = array();
 
-  // Assemble the Landing Page Data
+  // Assemble the Landing Page Data.
   module_load_include('inc', 'page_manager', 'page_manager.admin');
   $tasks = page_manager_get_tasks_by_type('page');
   $panels_pages = array('operations' => array());
   page_manager_get_pages($tasks, $panels_pages);
   foreach ($panels_pages['rows'] as $id => $info) {
     if (strpos($id, 'wetkit_admin')) {
-      // Exclude any admin pages
+      // Exclude any admin pages.
     }
     elseif ($info['data']['type']['data'] == 'System') {
-      // Exclude any system pages
+      // Exclude any system pages.
     }
     elseif ($panels_pages['disabled'][$id] == TRUE) {
-      // Exclude any disabled pages
+      // Exclude any disabled pages.
     }
     elseif ($info['data']['type']['data'] == 'Existing') {
-      // Exclude PM Existing Pages
+      // Exclude PM Existing Pages.
     }
     elseif ($id == 'page-wetkit_search') {
-      // Exclude WetKit Search's main page
+      // Exclude WetKit Search's main page.
     }
     else {
-      // Include anything else as a general page
+      // Include anything else as a general page.
       $pages[] = array(
         'data' => array(
           $info['data']['title'],
@@ -54,7 +54,7 @@ function wetkit_admin_landing_pages_content_type_render($subtype, $conf, $panel_
     }
   }
 
-  // Assemble the Page Template Data for Nodes, Taxonomy Terms, and Users
+  // Assemble the Page Template Data for Nodes, Taxonomy Terms, and Users.
   $plugins = panelizer_get_entity_plugins();
   foreach ($plugins as $entity_type => $plugin) {
     if (in_array($entity_type, array('node', 'taxonomy_term', 'user'))) {
@@ -74,7 +74,7 @@ function wetkit_admin_landing_pages_content_type_render($subtype, $conf, $panel_
     }
   }
 
-  // Create the Output
+  // Create the Output.
   $pane = new stdClass();
   if (!empty($pages)) {
     $pane->content = theme('table', array('header' => array(), 'rows' => $pages, 'attributes' => array('class' => 'panels-manage')));

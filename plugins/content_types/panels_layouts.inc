@@ -15,17 +15,17 @@ $plugin = array(
 );
 
 /**
-  * Put the output for you pages type in the blocks pages.
-  */
+ * Put the output for you pages type in the blocks pages.
+ */
 function wetkit_admin_panels_layouts_content_type_render($subtype, $conf, $panel_args, $context) {
 
-  // Find all the Panels layouts
+  // Find all the Panels layouts.
   $layout_options = array();
-  $panels_page_allowed_layouts = unserialize(variable_get('panels_page_allowed_layouts'));
+  $panels_page_allowed_layouts = variable_get('panels_page_allowed_layouts');
   foreach (panels_get_layouts() as $layout_option) {
     if (empty($layout_option['builder']) || $layout_option['builder'] == FALSE) {
 
-      // Determine the type of panels layout
+      // Determine the type of panels layout.
       if ($layout_option['module'] == 'panels') {
         if (!in_array($layout_option['theme'], array('panels_flexible', 'layout_responsive'))) {
           $layout_type = t('Default (Panels)');

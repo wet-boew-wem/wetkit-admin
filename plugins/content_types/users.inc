@@ -21,10 +21,10 @@ function wetkit_admin_users_content_type_render($subtype, $conf, $panel_args, $c
   $pane = new stdClass();
   $pane->title = t('User Roles');
 
-  // Build the users
+  // Build the users.
   $users = array();
   foreach (user_roles(TRUE) as $rid => $role) {
-    // Do not show roles we dont care about
+    // Do not show roles we dont care about.
     if (!in_array($rid, array(1))) {
       $user_links = array();
       $user_count = ($rid == 2) ? db_query("SELECT count(*) FROM {users} WHERE uid > :uid", array(':uid' => 0))->fetchField() : db_query("SELECT count(*) FROM {users} u INNER JOIN {users_roles} r on u.uid = r.uid WHERE r.rid = :rid", array(':rid' => $rid))->fetchField();
