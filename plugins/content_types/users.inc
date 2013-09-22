@@ -15,8 +15,8 @@ $plugin = array(
 );
 
 /**
-  * Put the output for you users type in the blocks users.
-  */
+ * Put the output for you users type in the blocks users.
+ */
 function wetkit_admin_users_content_type_render($subtype, $conf, $panel_args, $context) {
   $pane = new stdClass();
   $pane->title = t('User Roles');
@@ -43,7 +43,7 @@ function wetkit_admin_users_content_type_render($subtype, $conf, $panel_args, $c
         );
       }
       $user_links = (count($user_links)) ? theme('links__ctools_dropbutton', array('links' => $user_links, 'attributes' => array('class' => array('links', 'inline')))) : '';
-      $users[] = '<div class="user-links-wrapper clearfix"><div class="user-links">' . $user_links . '</div><strong>' . ucwords(str_replace(' user', '', $role)) . '</strong><br /><em>' . format_plural($user_count, '1 user' , '@count users') . '</em></div>';
+      $users[] = '<div class="user-links-wrapper clearfix"><div class="user-links">' . $user_links . '</div><strong>' . ucwords(str_replace(' user', '', $role)) . '</strong><br /><em>' . format_plural($user_count, '1 user', '@count users') . '</em></div>';
     }
   }
   $pane->content = theme('item_list', array('items' => $users));

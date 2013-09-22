@@ -6,7 +6,7 @@
  */
 
 /**
- * Implements hook_install()
+ * Implements hook_install().
  */
 function wetkit_admin_install() {
 
@@ -14,11 +14,4 @@ function wetkit_admin_install() {
   if ($administrator = user_role_load_by_name('administrator')) {
     user_role_grant_permissions($administrator->rid, array_keys(module_invoke_all('permission')));
   }
-}
-
-/**
- * Implements hook_uninstall()
- */
-function wetkit_admin_uninstall() {
-
 }

@@ -1,12 +1,13 @@
 <?php
 /**
  * @file
+ * Main module file for WetKit Admin.
  */
 
-include_once('wetkit_admin.features.inc');
+include_once 'wetkit_admin.features.inc';
 
 /**
- * Implementation of hook_apps_app_info()
+ * Implements hook_apps_app_info().
  */
 function wetkit_admin_apps_app_info() {
   return array(
@@ -15,7 +16,7 @@ function wetkit_admin_apps_app_info() {
 }
 
 /**
- * Configuration Form for WetKit Admin
+ * Configuration Form for WetKit Admin.
  */
 function wetkit_admin_configure_form($form, &$form_state) {
   $form = array();
@@ -72,7 +73,7 @@ function wetkit_admin_configure_form($form, &$form_state) {
 }
 
 /**
- * Implementation of hook_ctools_plugin_directory()
+ * Implements hook_ctools_plugin_directory().
  */
 function wetkit_admin_ctools_plugin_directory($module, $plugin) {
   return 'plugins/' . $plugin;
@@ -83,12 +84,12 @@ function wetkit_admin_ctools_plugin_directory($module, $plugin) {
  */
 function wetkit_admin_panels_pane_content_alter($content, $pane, $args, $context) {
 
-  // Pass the title properly through to style plugins rendering regions
+  // Pass the title properly through to style plugins rendering regions.
   $pane->title = (isset($content->title)) ? $content->title : NULL;
 
-  // Hide the title of administrative panes when there isn't any content
+  // Hide the title of administrative panes when there isn't any content.
   if (!empty($context['argument_node_edit_1']) && !empty($content->content) && $content->type != 'page_title') {
-    foreach($content->content as $content_item) {
+    foreach ($content->content as $content_item) {
       if (is_array($content_item) && isset($content_item['#access']) && $content_item['#access'] === FALSE) {
         $content->title = '';
       }
@@ -97,39 +98,40 @@ function wetkit_admin_panels_pane_content_alter($content, $pane, $args, $context
 }
 
 /**
- * Implementation of hook_ctools_content_subtype_alter()
+ * Implements hook_ctools_content_subtype_alter().
  */
 function wetkit_admin_ctools_content_subtype_alter(&$subtype, &$plugin) {
 
-  // Figure out some things about each of the substypes
+  // Figure out some things about each of the substypes.
   $pane_label = $subtype['title'];
   $category_label  = (is_string($subtype['category'])) ? $subtype['category'] : $subtype['category'][0];
 
-  // If we are not using advanced plugins and this is an advanced plugin then disable the pane
+  // If we are not using advanced plugins and this is an advanced
+  // plugin then disable the pane.
   if (!variable_get('wetkit_admin_advanced_plugins', FALSE) && wetkit_admin_is_advanced_plugin($pane_label, $category_label)) {
     $subtype['required context'] = new ctools_context_required(t('WetKit Null'), 'string');
     $plugin['all contexts'] = FALSE;
   }
 
-  // Switch the labeling of "Miscellaneous" to "Blocks"
+  // Switch the labeling of "Miscellaneous" to "Blocks".
   if ($category_label == 'Miscellaneous') {
     $subtype['category'] = 'Blocks';
   }
 }
 
 /**
- * Implementation of hook_form_alter()
+ * Implements hook_form_alter().
  */
 function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
 
-  // Improve the title field
+  // Improve the title field.
   if (isset($form['title']['#title'])) {
     $form['title']['#attributes']['placeholder'] = $form['title']['#title'];
   }
 
-  // Improve the URL selection form
+  // Improve the URL selection form.
   if (isset($form['#entity_type']) && $form['#entity_type'] == 'node' && isset($form['path']) && isset($form['path']['alias'])) {
-    unset($form['path']['#type']); // remove the fieldset
+    unset($form['path']['#type']);
     unset($form['path']['alias']['#description']);
     $form['path']['alias']['#title'] = '<strong>' . t('Permalink') . ':</strong> ';
     $form['path']['alias']['#title'] .= (isset($_SERVER['HTTPS'])) ? 'https://' . $_SERVER['HTTP_HOST'] . '/' : 'http://' . $_SERVER['HTTP_HOST'] . '/';
@@ -143,12 +145,12 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
   }
 
   // Add clearfix to node body container to prevent clearing issue with
-  // vertical tabs - @see https://drupal.org/node/1686500
+  // vertical tabs - @see https://drupal.org/node/1686500.
   if (isset($form['#entity_type']) && $form['#entity_type'] == 'node' && isset($form['body']['#type']) && $form['body']['#type'] == 'container') {
     $form['body']['#attributes']['class'][] = 'clearfix';
   }
 
-  // Improve and potentially hide the machine name option from Default Content
+  // Improve and potentially hide the machine name option from Default Content.
   if (isset($form['machine_name_fs'])) {
     $form['options']['machine_name_fs']['machine_name'] = $form['machine_name_fs']['machine_name'];
     $form['options']['machine_name_fs']['machine_name']['#size'] = '';
@@ -158,31 +160,31 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
     unset($form['machine_name_fs']);
   }
 
-  // Improve the publishing options by remove promote to front page and sticky
+  // Improve the publishing options by remove promote to front page and sticky.
   if (isset($form['options']) && !variable_get('wetkit_admin_front_page_and_sticky', 0)) {
     $form['options']['promote']['#access'] = FALSE;
     $form['options']['sticky']['#access'] = FALSE;
   }
 
-  // Move the featured field into publishing options
+  // Move the featured field into publishing options.
   if (!empty($form['field_featured_status'])) {
     $form['options']['field_featured_status'] = $form['field_featured_status'];
     $form['field_featured_status'] = array('#language' => $form['options']['field_featured_status']['#language']);
   }
 
-  // Remove the description from the featured image
+  // Remove the description from the featured image.
   if (!empty($form['field_featured_image'])) {
     $form['field_featured_image'][LANGUAGE_NONE][0]['#description'] = '';
   }
 
-  // Hide the featured category field if there are no featured category options
+  // Hide the featured category field if there are no featured category options.
   if (!empty($form['field_featured_categories']) && $form['field_featured_categories'][LANGUAGE_NONE]['#type'] != 'textfield') {
     if (count($form['field_featured_categories'][LANGUAGE_NONE]['#options']) == 0 || (!empty($form['field_featured_categories'][LANGUAGE_NONE]['#options']['_none']) && count($form['field_featured_categories'][LANGUAGE_NONE]['#options']) == 1)) {
       $form['field_featured_categories']['#access'] = FALSE;
     }
   }
 
-  // Improve authoring options
+  // Improve authoring options.
   if (isset($form['author']) && isset($form['#entity_type']) && $form['#entity_type'] == 'node') {
     unset($form['author']['name']['#description']);
     $form['author']['name']['#title'] = t('Author');
@@ -190,7 +192,7 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
     $form['author']['name']['#weight'] = 4;
     $form['author']['date']['#weight'] = 5;
 
-    // Adjust options for Date Popup Module
+    // Adjust options for Date Popup Module.
     if (module_exists('date_popup_authored')) {
       unset($form['author']['date']['#description']);
       unset($form['author']['date']['#title']);
@@ -198,12 +200,12 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 
-  // Improve the revision interface
+  // Improve the revision interface.
   if (!empty($form['revision_information']['revision']['#access'])) {
     $form['revision_information']['log']['#states'] = array(
       'visible' => array(
-        'input[name="revision"]' => array('checked' => TRUE)
-      )
+        'input[name="revision"]' => array('checked' => TRUE),
+      ),
     );
     $form['revision_information']['log']['#weight'] = 10;
     unset($form['revision_information']['log']['#title']);
@@ -215,7 +217,7 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
     unset($form['revision_information']['revision']);
   }
 
-  // Improve the menu adding experience
+  // Improve the menu adding experience.
   if (isset($form['menu']) && isset($form['menu']['enabled']) && $form['menu']['#access']) {
     $form['menu']['link']['link_title']['#size'] = '';
     $form['menu']['link']['weight']['#access'] = FALSE;
@@ -227,7 +229,7 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Implementation of hook_module_implements_alter()
+ * Implements hook_module_implements_alter().
  */
 function wetkit_admin_module_implements_alter(&$implementations, $hook) {
   if ($hook == 'form_alter' || $hook == 'ctools_content_subtype_alter') {
@@ -238,15 +240,15 @@ function wetkit_admin_module_implements_alter(&$implementations, $hook) {
 }
 
 /**
- * Submit function for adding pathauto settings
+ * Submit function for adding pathauto settings.
  */
 function wetkit_admin_pathauto_submit($form, &$form_state) {
-  // If the user hasn't specified a path, autogenerate
+  // If the user hasn't specified a path, autogenerate.
   if (empty($form_state['input']['path']['alias'])) {
     $form_state['values']['path']['pathauto'] = TRUE;
     $form_state['input']['path']['pathauto'] = TRUE;
   }
-  // If the user has specified a path, dont autogenerate
+  // If the user has specified a path, dont autogenerate.
   else {
     $form_state['values']['path']['pathauto'] = FALSE;
     $form_state['input']['path']['pathauto'] = FALSE;
@@ -254,7 +256,7 @@ function wetkit_admin_pathauto_submit($form, &$form_state) {
 }
 
 /**
- * Validate function for adding menu validation
+ * Validate function for adding menu validation.
  */
 function wetkit_admin_menu_validate($form, &$form_state) {
   if ($form_state['input']['menu']['enabled'] && !$form_state['input']['menu']['link_title']) {
@@ -275,11 +277,11 @@ function wetkit_admin_permission() {
 }
 
 /**
- * Implementation of hook_menu
+ * Implements hook_menu().
  */
 function wetkit_admin_menu() {
 
-  // Panelizer "revert" page callback
+  // Panelizer "revert" page callback.
   $items['admin/site/panelizer-delete/%/%'] = array(
     'type' => MENU_CALLBACK,
     'page callback' => 'drupal_get_form',
@@ -288,7 +290,7 @@ function wetkit_admin_menu() {
     'access arguments' => array(3, 4),
   );
 
-  // Panels pane layout enable/disable page callback
+  // Panels pane layout enable/disable page callback.
   $items['admin/wetkit/panes/layout/%/%/%'] = array(
     'type' => MENU_CALLBACK,
     'page callback' => 'wetkit_admin_switch_layout_action',
@@ -296,7 +298,7 @@ function wetkit_admin_menu() {
     'access callback' => 'wetkit_admin_panels_layout_access',
   );
 
-  // Add a local action link for the flexible layout builder
+  // Add a local action link for the flexible layout builder.
   $items['admin/wetkit/layouts/add-flexible'] = array(
     'title' => 'Add Flexible Layout',
     'description' => 'This will add a flexible layout to Panels',
@@ -306,7 +308,7 @@ function wetkit_admin_menu() {
     'access arguments' => array('administer page manager'),
   );
 
-  // Panels pane enable/disable page callback
+  // Panels pane enable/disable page callback.
   $items['admin/wetkit/panes/pane/%/%/%/%'] = array(
     'type' => MENU_CALLBACK,
     'page callback' => 'wetkit_admin_switch_pane_action',
@@ -314,7 +316,7 @@ function wetkit_admin_menu() {
     'access arguments' => array('administer page manager'),
   );
 
-  // Add an administration page for WetKit
+  // Add an administration page for WetKit.
   $items['admin/wetkit'] = array(
     'title' => 'WetKit',
     'description' => 'Administer all things WetKit.',
@@ -326,7 +328,7 @@ function wetkit_admin_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
 
-  // Add settings pages for WetKit and WetKit Apps
+  // Add settings pages for WetKit and WetKit Apps.
   foreach (module_list() as $module) {
     $app_info = module_invoke($module, 'apps_app_info');
     if (!empty($app_info) && !empty($app_info['configure form'])) {
@@ -355,61 +357,63 @@ function wetkit_admin_menu() {
 }
 
 /**
- * Access handler for Panelizer revert functionality
+ * Access handler for Panelizer revert functionality.
  */
 function wetkit_admin_panelizer_revert_access($entity_type, $entity_id) {
 
-  // Allow if the user can administer panelizer
+  // Allow if the user can administer panelizer.
   if (user_access('administer panelizer')) {
     return TRUE;
   }
 
   // Allow if the user can administer the specific panelizer item
-  // TODO - do we also want to check ability to modify panelizer setting?
+  // TODO - do we also want to check ability to modify panelizer setting.
   $entities = entity_load($entity_type, array($entity_id));
   if (entity_access('update', $entity_type, $entities[$entity_id])) {
     return TRUE;
   }
 
-  // Otherwise not allowed
+  // Otherwise not allowed.
   return FALSE;
 }
 
 /**
- * Access handler for changing Panels layouts
+ * Access handler for changing Panels layouts.
  */
 function wetkit_admin_panels_layout_access() {
   return user_access('administer page manager');
 }
 
 /**
- * Implementation of hook_menu_alter()
+ * Implements hook_menu_alter().
  */
 function wetkit_admin_menu_alter(&$items) {
 
-  // Set the description of the page library
+  // Set the description of the page library.
   $items['admin/wetkit/pages']['description'] = 'This is the page library for the site. See your landing pages, page templates, and overriden page templates.';
 
-  // Set the description of the layout library
+  // Set the description of the layout library.
   $items['admin/wetkit/layouts']['description'] = 'This is the layout library for the site. See your preset and custom layouts.';
 
-  // Set the description of the pane library
+  // Set the description of the pane library.
   $items['admin/wetkit/panes']['description'] = 'This is the pane library for the site. See all of the panes you can add to your pages.';
 
-  // Adjust the "Pages" page created by Panels to have a more specific permission set
+  // Adjust the "Pages" page created by Panels to have a more specific
+  // permission set.
   $items['admin/structure/pages']['access arguments'] = array('administer page manager');
 
-  // Adjust the "Configuration" page to only show when the user can change the configuration options
+  // Adjust the "Configuration" page to only show when the user can change
+  // the configuration options.
   $items['admin/config']['access arguments'] = array('administer site configuration');
 }
 
 /**
- * Implementation of hook_link_alter()
+ * Implements hook_link_alter().
  */
 function wetkit_admin_menu_link_alter(&$item) {
 
-  // Automatically set all of the settings elements to be children of the main parent element
-  // Not entirely sure why the menu system doesn't do this for us.
+  // Automatically set all of the settings elements to be children of the main
+  // parent element not entirely sure why the menu system doesn't do this.
   if (!empty($item['path']) && strpos($item['path'], 'wetkit/settings/')) {
     $parent_mlid = db_query("SELECT mlid FROM {menu_links} WHERE link_path = :path", array(':path' => 'admin/wetkit/settings'))->fetchField();
     $item['plid'] = $parent_mlid;
@@ -417,7 +421,7 @@ function wetkit_admin_menu_link_alter(&$item) {
 }
 
 /**
- * Callback form to disable demo content for an app
+ * Callback form to disable demo content for an app.
  */
 function wetkit_admin_disable_demo_content_form($form, &$form_state, $demomodule, $redirect) {
   $form = array();
@@ -442,7 +446,7 @@ function wetkit_admin_disable_demo_content_form($form, &$form_state, $demomodule
 }
 
 /**
- * Submit handler for disabling demo content
+ * Submit handler for disabling demo content.
  */
 function wetkit_admin_disable_demo_content_form_submit($form, &$form_state) {
   module_disable(array($form_state['values']['demomodule']));
@@ -463,12 +467,14 @@ function wetkit_admin_entity_parse_info($entity, $type) {
       $entity_info['bundle_type'] = $entity->type;
       $entity_info['id'] = $entity->nid;
       break;
+
     case 'user':
       $entity_info['title'] = $entity->name;
       $entity_info['type'] = 'user';
       $entity_info['bundle_type'] = 'user';
       $entity_info['id'] = $entity->uid;
       break;
+
     case 'taxonomy_term':
       $entity_info['title'] = $entity->name;
       $entity_info['type'] = 'taxonomy_term';
@@ -529,49 +535,50 @@ function wetkit_admin_panelizer_delete_form_submit($form, &$form_state) {
 }
 
 /**
- * Helper function to identify advanced plugins
+ * Helper function to identify advanced plugins.
  */
 function wetkit_admin_is_advanced_plugin($pane_label, $category_label) {
 
-  // Specifically excluded categories
+  // Specifically excluded categories.
   $fixed_advanced_plugins = array(
-    'View context', // support for views context
-    'Page elements', // sitewide panes that don't work so well in $content region
-    'Facet API', // default facet api options subsumed into "Search Facets" option
-    'File', // support for file items that is just confusing
-    'Existing pages', // pages from pm existing pages module that will break the site
+    'View context',
+    'Page elements',
+    'Facet API',
+    'File',
+    'Existing pages',
   );
 
-  // Specifically excluded panes
+  // Specifically excluded panes.
   $fixed_advanced_panes = array(
-    'Panels pane', // default panels panes entity we don't need
-    'Execute PHP',  // sigh
-    'Devel', // devel option for advanced users
-    'Switch user',  // devel option for advanced users
-    'Theme switcher', // devel option for advanced users
-    'User menu', // user menu
-    'Development', // development menu
-    'Management', // management menu
-    'Navigation', // navigation menu
-    '<em class="placeholder">User menu</em> menu tree', // user menu men tree
-    '<em class="placeholder">Development</em> menu tree', // development menu tree
-    '<em class="placeholder">Management</em> menu tree', // management menu tree
-    '<em class="placeholder">Navigation</em> menu tree', // navigation menu tree
-    'Manage Apps for WetKit', // manage apps for wetkit block
-    'Shortcuts', // shortcuts block
-    'User login', // user login widget
-    'Powered by Drupal', // powere by drupal widget
-    'Search form', // search form widget
-    'Syndicate', // syndicate widget
-    'Recent content', // recent content widget
+    'Panels pane',
+    'Execute PHP',
+    'Devel',
+    'Switch user',
+    'Theme switcher',
+    'User menu',
+    'Development',
+    'Management',
+    'Navigation',
+    '<em class="placeholder">User menu</em> menu tree',
+    '<em class="placeholder">Development</em> menu tree',
+    '<em class="placeholder">Management</em> menu tree',
+    '<em class="placeholder">Navigation</em> menu tree',
+    'Manage Apps for WetKit',
+    'Shortcuts',
+    'User login',
+    'Powered by Drupal',
+    'Search form',
+    'Syndicate',
+    'Recent content',
   );
 
-  // Define this as an advanced plugin if it is in the advance category or pane list or has tokens
+  // Define this as an advanced plugin if it is in the advanced category
+  // or pane list or has tokens.
   return (in_array($category_label, $fixed_advanced_plugins) || in_array($pane_label, $fixed_advanced_panes) || strpos($category_label, '(tokens)'));
 }
 
 /**
- * Helper function to enable or disable layouts
+ * Helper function to enable or disable layouts.
  */
 function wetkit_admin_switch_layout_action($status, $layout_name, $token) {
 
@@ -596,7 +603,7 @@ function wetkit_admin_switch_layout_action($status, $layout_name, $token) {
 }
 
 /**
- * Helper function to enable or disable general panel panes
+ * Helper function to enable or disable general panel panes.
  */
 function wetkit_admin_switch_pane_action($status, $category_name, $plugin_name, $token) {
 
@@ -621,7 +628,7 @@ function wetkit_admin_switch_pane_action($status, $category_name, $plugin_name, 
 }
 
 /**
- * Helper function to get the layout status
+ * Helper function to get the layout status.
  */
 function _wetkit_admin_general_layout_get_status($layout_name, $status) {
   if ($status == 'enable') {
@@ -636,7 +643,7 @@ function _wetkit_admin_general_layout_get_status($layout_name, $status) {
       ),
     );
     if (wetkit_admin_panels_layout_access()) {
-      return '<div id="wetkit-admin-layout-response-' . $layout_name . '">'. t('Enabled') . ' (' . drupal_render($link) . ')</div>';
+      return '<div id="wetkit-admin-layout-response-' . $layout_name . '">' . t('Enabled') . ' (' . drupal_render($link) . ')</div>';
     }
     else {
       return '<div id="wetkit-admin-layout-response-' . $layout_name . '">' . t('Enabled') . '</div>';
@@ -663,7 +670,7 @@ function _wetkit_admin_general_layout_get_status($layout_name, $status) {
 }
 
 /**
- * Helper function to get the plugin status
+ * Helper function to get the plugin status.
  */
 function _wetkit_admin_general_panes_get_status($plugin_name, $category_name, $status) {
   if ($status == 'enable') {
@@ -695,7 +702,7 @@ function _wetkit_admin_general_panes_get_status($plugin_name, $category_name, $s
 }
 
 /**
- * Helper function to get the plugin type status
+ * Helper function to get the plugin type status.
  */
 function _wetkit_admin_plugin_type_get_status($plugin_type, $status) {
   if ($status == 'enable') {

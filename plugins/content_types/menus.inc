@@ -3,7 +3,7 @@
 /**
  * @file
  * A panel plugin to provide administrative information about the site's menus
-*/
+ */
 
 $plugin = array(
   'title' => t('Menus'),
@@ -42,7 +42,7 @@ function wetkit_admin_menus_content_type_render($subtype, $conf, $panel_args, $c
     // Filter out the options we don't want.
     if (!in_array($menu_name, array('devel', 'management', 'navigation', 'user-menu'))) {
       $menu_links = (count($menu_links)) ? theme('links__ctools_dropbutton', array('links' => $menu_links, 'attributes' => array('class' => array('links', 'inline')))) : '';
-      $menus[] = '<div class="menu-links-wrapper clearfix"><div class="menu-links">' . $menu_links . '</div><strong>' . ucwords(str_replace(' Menu', '', $menu)) . '</strong><br /> <em>' . format_plural($menu_count, '1 link' , '@count links') . '</em></div>';
+      $menus[] = '<div class="menu-links-wrapper clearfix"><div class="menu-links">' . $menu_links . '</div><strong>' . ucwords(str_replace(' Menu', '', $menu)) . '</strong><br /> <em>' . format_plural($menu_count, '1 link', '@count links') . '</em></div>';
     }
   }
 

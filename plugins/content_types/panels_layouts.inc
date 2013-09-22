@@ -30,14 +30,14 @@ function wetkit_admin_panels_layouts_content_type_render($subtype, $conf, $panel
         if (!in_array($layout_option['theme'], array('panels_flexible', 'layout_responsive'))) {
           $layout_type = t('Default (Panels)');
         }
-        else if ($layout_option['theme'] == 'panels_flexible') {
+        elseif ($layout_option['theme'] == 'panels_flexible') {
           $layout_type = t('Custom (Flexible)');
         }
-        else if ($layout_option['theme'] == 'layout_responsive') {
+        elseif ($layout_option['theme'] == 'layout_responsive') {
           $layout_type = t('Custom (Responsive)');
         }
       }
-      else if ($layout_option['category'] == 'WetKit') {
+      elseif ($layout_option['category'] == 'WetKit') {
         $layout_type = t('Default (WetKit)');
       }
       else {
@@ -58,7 +58,7 @@ function wetkit_admin_panels_layouts_content_type_render($subtype, $conf, $panel
     }
   }
 
-  // Create the Output
+  // Create the Output.
   $pane = new stdClass();
   ksort($layout_options);
   if (!empty($layout_options)) {
