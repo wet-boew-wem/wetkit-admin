@@ -330,13 +330,20 @@ function wetkit_admin_menu() {
 
   // Add settings pages for WetKit and WetKit Apps.
   foreach (module_list() as $module) {
+    $description = 'This is the configuration screen for ';
+
+    // Special text handling for certain modules.
+    if ($module == 'wetkit_wetboew') {
+      $description = 'Change to another of the various WxT Drupal based themes using ';
+    }
+
     $app_info = module_invoke($module, 'apps_app_info');
     if (!empty($app_info) && !empty($app_info['configure form'])) {
       $module_info = drupal_parse_info_file(drupal_get_path('module', $module) . '/' . $module . '.info');
       if (!empty($module_info['package']) && $module_info['package'] == 'WetKit') {
         $items['admin/wetkit/' . $module] = array(
           'title' => $module_info['name'],
-          'description' => 'This is the configuration screen for ' . $module_info['name'],
+          'description' => $description . $module_info['name'],
           'page callback' => 'drupal_get_form',
           'page arguments' => array($app_info['configure form']),
           'access arguments' => array('administer site configuration'),
@@ -345,7 +352,7 @@ function wetkit_admin_menu() {
       elseif (!empty($module_info['package']) && $module_info['package'] == 'WetKit Apps') {
         $items['admin/wetkit/' . $module] = array(
           'title' => $module_info['name'],
-          'description' => 'This is the configuration screen for ' . $module_info['name'],
+          'description' => $description . $module_info['name'],
           'page callback' => 'drupal_get_form',
           'page arguments' => array($app_info['configure form']),
           'access arguments' => array('administer site configuration'),
