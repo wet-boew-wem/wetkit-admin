@@ -318,7 +318,7 @@ function wetkit_admin_menu() {
 
   // Add an administration page for WetKit.
   $items['admin/wetkit'] = array(
-    'title' => 'WetKit',
+    'title' => 'WxT',
     'description' => 'Administer all things WetKit.',
     'weight' => -8,
     'position' => 'left',
@@ -342,7 +342,7 @@ function wetkit_admin_menu() {
       $module_info = drupal_parse_info_file(drupal_get_path('module', $module) . '/' . $module . '.info');
       if (!empty($module_info['package']) && $module_info['package'] == 'WetKit') {
         $items['admin/wetkit/' . $module] = array(
-          'title' => $module_info['name'],
+          'title' => substr($module_info['name'], 7),
           'description' => $description . $module_info['name'],
           'page callback' => 'drupal_get_form',
           'page arguments' => array($app_info['configure form']),
@@ -351,7 +351,7 @@ function wetkit_admin_menu() {
       }
       elseif (!empty($module_info['package']) && $module_info['package'] == 'WetKit Apps') {
         $items['admin/wetkit/' . $module] = array(
-          'title' => $module_info['name'],
+          'title' => substr($module_info['name'], 7),
           'description' => $description . $module_info['name'],
           'page callback' => 'drupal_get_form',
           'page arguments' => array($app_info['configure form']),

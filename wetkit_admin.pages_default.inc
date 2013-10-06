@@ -312,7 +312,7 @@ function wetkit_admin_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'WetKit Layouts',
+    'title' => 'Layouts',
     'name' => 'management',
     'weight' => '0',
     'parent' => array(
@@ -422,7 +422,7 @@ function wetkit_admin_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'WetKit Pages',
+    'title' => 'Pages',
     'name' => 'management',
     'weight' => '0',
     'parent' => array(
@@ -551,7 +551,7 @@ function wetkit_admin_default_page_manager_pages() {
   );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'WetKit Panes',
+    'title' => 'Panes',
     'name' => 'management',
     'weight' => '0',
     'parent' => array(
