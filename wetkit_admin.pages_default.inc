@@ -17,7 +17,7 @@ function wetkit_admin_default_page_manager_handlers() {
   $handler->task = 'node_edit';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = 100;
   $handler->conf = array(
     'title' => 'Node Edit Page',
     'no_blocks' => 0,
