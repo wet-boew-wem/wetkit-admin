@@ -14,9 +14,6 @@ projects[admin_views][subdir] = contrib
 projects[backports][version] = 1.0-alpha1
 projects[backports][subdir] = contrib
 
-projects[breakpoints][version] = 1.1
-projects[breakpoints][subdir] = contrib
-
 projects[date_popup_authored][version] = 1.1
 projects[date_popup_authored][subdir] = contrib
 
