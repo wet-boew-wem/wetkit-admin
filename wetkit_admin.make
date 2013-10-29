@@ -20,9 +20,8 @@ projects[date_popup_authored][subdir] = contrib
 projects[jquery_update][version] = 2.x-dev
 projects[jquery_update][subdir] = contrib
 projects[jquery_update][download][type] = git
-projects[jquery_update][download][revision] = dd3d76e
+projects[jquery_update][download][revision] = 65eecb0
 projects[jquery_update][download][branch] = 7.x-2.x
-projects[jquery_update][patch][1966750] = http://drupal.org/files/jquery_update-ui-effects-renamed-1966750-4.patch
 
 projects[module_filter][version] = 1.8
 projects[module_filter][subdir] = contrib
