@@ -22,6 +22,7 @@ projects[jquery_update][subdir] = contrib
 projects[jquery_update][download][type] = git
 projects[jquery_update][download][revision] = 65eecb0
 projects[jquery_update][download][branch] = 7.x-2.x
+projects[jquery_update][patch][2123973] = http://drupal.org/files/jquery_effects_missing-2123973-1.patch
 
 projects[module_filter][version] = 1.8
 projects[module_filter][subdir] = contrib
