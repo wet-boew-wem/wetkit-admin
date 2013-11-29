@@ -6,14 +6,15 @@
  */
 
 /**
- * Implements hook_install().
+ * Implements hook_uninstall().
  */
-function wetkit_admin_install() {
-
-  // Update the administrator role to have all permissions.
-  if ($administrator = user_role_load_by_name('administrator')) {
-    $permissions = module_invoke_all('permission');
-    unset($permissions['access wxt mobile']);
-    user_role_grant_permissions($administrator->rid, array_keys($permissions));
+function wetkit_admin_uninstall() {
+  // Get global variable array.
+  global $conf;
+  foreach (array_keys($conf) as $key) {
+    // Find variables that have the module prefix.
+    if (strpos($key, 'wetkit_admin_') === 0) {
+      variable_del($key);
+    }
   }
 }
