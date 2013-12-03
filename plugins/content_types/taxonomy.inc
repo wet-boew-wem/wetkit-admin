@@ -31,7 +31,7 @@ function wetkit_admin_taxonomy_content_type_render($subtype, $conf, $panel_args,
         'title' => t('Configure'),
         'href' => 'admin/structure/taxonomy/' . $vocab->machine_name,
         'query' => array(),
-        );
+      );
       $categories_links[] = array(
         'title' => t('Add new'),
         'href' => 'admin/structure/taxonomy/' . $vocab->machine_name . '/add',
@@ -39,7 +39,7 @@ function wetkit_admin_taxonomy_content_type_render($subtype, $conf, $panel_args,
       );
     }
     $categories_links = (count($categories_links)) ? theme('links__ctools_dropbutton', array('links' => $categories_links, 'attributes' => array('class' => array('links', 'inline')))) : '';
-    $categories[] = '<div class="categories-links-wrapper clearfix"><div class="categories-links">' . $categories_links . '</div><strong>' . $vocab->name . '</strong><br /><em>' . format_plural($term_count, '1 term' , '@count terms') . '</em></div>';
+    $categories[] = '<div class="categories-links-wrapper clearfix"><div class="categories-links">' . $categories_links . '</div><strong>' . $vocab->name . '</strong><br /><em>' . format_plural($term_count, '1 term', '@count terms') . '</em></div>';
   }
   $pane->content = (count($categories)) ? theme('item_list', array('items' => $categories)) : NULL;
   return $pane;

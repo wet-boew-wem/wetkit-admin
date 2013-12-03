@@ -2,7 +2,7 @@
 
 /**
  * @file
- * A panel plugin to provide administrative information about the site's pages and layouts
+ * A panel plugin to provide administrative information.
  */
 
 $plugin = array(
@@ -47,10 +47,9 @@ function wetkit_admin_overridden_page_templates_content_type_render($subtype, $c
         '<em>' . $entity_info['bundles'][$entity_data['bundle_type']]['label'] . ' template' . '</em>',
         l(url($entity_uri['path']), $entity_uri['path']),
         (wetkit_admin_panelizer_revert_access($entity_data['type'], $entity_data['id'])) ? l(t('Revert'), 'admin/site/panelizer-delete/' . $entity_data['type'] . '/' . $entity_data['id']) : NULL,
-      )
+      ),
     );
   }
-
 
   // Create the Output.
   $pane = new stdClass();
