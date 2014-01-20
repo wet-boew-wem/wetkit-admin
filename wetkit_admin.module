@@ -168,12 +168,6 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
     $form['options']['sticky']['#access'] = FALSE;
   }
 
-  // Move the featured field into publishing options.
-  if (!empty($form['field_featured_status']) && $form['options']['#access']) {
-    $form['options']['field_featured_status'] = $form['field_featured_status'];
-    $form['field_featured_status'] = array('#language' => $form['options']['field_featured_status']['#language']);
-  }
-
   // Remove the description from the featured image.
   if (!empty($form['field_featured_image'])) {
     $form['field_featured_image'][LANGUAGE_NONE][0]['#description'] = '';
