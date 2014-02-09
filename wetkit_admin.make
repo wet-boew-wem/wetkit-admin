@@ -22,8 +22,8 @@ projects[jquery_update][subdir] = contrib
 projects[jquery_update][download][type] = git
 projects[jquery_update][download][revision] = 65eecb0
 projects[jquery_update][download][branch] = 7.x-2.x
-;projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_update-theme-specific-version-1969244-22.patch
-projects[jquery_update][patch][2056413] = http://drupal.org/files/jquery_update-2056413.patch
+projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_update-theme-specific-version-1969244-22.patch
+projects[jquery_update][patch][2056413] = http://drupal.org/files/issues/jquery_update-2056413-08.patch
 projects[jquery_update][patch][2123973] = http://drupal.org/files/issues/jquery_effects_missing-2123973-3_0.patch
 
 projects[module_filter][version] = 1.8
