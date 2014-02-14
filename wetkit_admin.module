@@ -423,40 +423,6 @@ function wetkit_admin_menu_link_alter(&$item) {
 }
 
 /**
- * Callback form to disable demo content for an app.
- */
-function wetkit_admin_disable_demo_content_form($form, &$form_state, $demomodule, $redirect) {
-  $form = array();
-
-  drupal_set_title('Disable Demo Content?');
-
-  $form['redirect'] = array(
-    '#type' => 'value',
-    '#value' => $redirect,
-  );
-
-  $form['demomodule'] = array(
-    '#type' => 'value',
-    '#value' => $demomodule,
-  );
-
-  $form['submit'] = array(
-    '#value' => t('Disable Demo Content'),
-    '#type' => 'submit',
-  );
-  return $form;
-}
-
-/**
- * Submit handler for disabling demo content.
- */
-function wetkit_admin_disable_demo_content_form_submit($form, &$form_state) {
-  module_disable(array($form_state['values']['demomodule']));
-  menu_rebuild();
-  drupal_goto($form_state['values']['redirect']);
-}
-
-/**
  * Utility function for parsing basic entity info.
  */
 function wetkit_admin_entity_parse_info($entity, $type) {
