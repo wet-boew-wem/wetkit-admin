@@ -17,14 +17,10 @@ projects[backports][subdir] = contrib
 projects[date_popup_authored][version] = 1.1
 projects[date_popup_authored][subdir] = contrib
 
-projects[jquery_update][version] = 2.x-dev
+projects[jquery_update][version] = 2.4
 projects[jquery_update][subdir] = contrib
-projects[jquery_update][download][type] = git
-projects[jquery_update][download][revision] = e5ab706
-projects[jquery_update][download][branch] = 7.x-2.x
 projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_update-theme-specific-version-1969244-22.patch
 projects[jquery_update][patch][2056413] = http://drupal.org/files/issues/jquery_update-2056413-08.patch
-projects[jquery_update][patch][2123973] = http://drupal.org/files/issues/jquery_effects_missing-2123973-3_0.patch
 
 projects[module_filter][version] = 1.8
 projects[module_filter][subdir] = contrib
