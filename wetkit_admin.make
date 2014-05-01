@@ -16,6 +16,7 @@ projects[backports][subdir] = contrib
 
 projects[date_popup_authored][version] = 1.1
 projects[date_popup_authored][subdir] = contrib
+projects[date_popup_authored][patch][2256611] = http://drupal.org/files/issues/hook_form_node_form_alter-2256611-01.patch
 
 projects[jquery_update][version] = 2.4
 projects[jquery_update][subdir] = contrib
