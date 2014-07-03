@@ -12,6 +12,7 @@ dependencies[] = jquery_update
 dependencies[] = page_manager
 dependencies[] = strongarm
 dependencies[] = views_bulk_operations
+dependencies[] = wetkit_navbar
 scripts[] = wetkit-admin.js
 stylesheets[all][] = wetkit-admin.css
 features[ctools][] = page_manager:pages_default:1

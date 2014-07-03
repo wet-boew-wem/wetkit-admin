@@ -26,3 +26,20 @@ projects[jquery_update][patch][2123973] = http://drupal.org/files/issues/jquery_
 
 projects[module_filter][version] = 1.8
 projects[module_filter][subdir] = contrib
+
+; Contrib for WetKit Ember
+
+projects[escape_admin][version] = 1.1
+projects[escape_admin][subdir] = contrib
+
+projects[navbar][version] = 1.x-dev
+projects[navbar][subdir] = contrib
+projects[navbar][download][type] = git
+projects[navbar][download][revision] = de121df
+projects[navbar][download][branch] = 7.x-1.x
+
+projects[responsive_preview][version] = 1.x-dev
+projects[responsive_preview][subdir] = contrib
+projects[responsive_preview][download][type] = git
+projects[responsive_preview][download][revision] = d741779
+projects[responsive_preview][download][branch] = 7.x-1.x
