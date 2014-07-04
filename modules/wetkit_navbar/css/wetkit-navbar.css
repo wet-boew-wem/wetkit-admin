@@ -6,7 +6,7 @@
 /* Toolbar formatting */
 
 a#navbar-link-admin-wetkit:before {
-  background-image: url("../icons/bebebe/wetkit.png");
+  background-image: url("../icons/787878/wetkit.png");
 }
 
 a#navbar-link-admin-wetkit.active:before {
@@ -14,7 +14,7 @@ a#navbar-link-admin-wetkit.active:before {
 }
 
 a#navbar-link-admin-workbench:before {
-  background-image: url("../icons/bebebe/workbench.png");
+  background-image: url("../icons/787878/workbench.png");
 }
 
 a#navbar-link-admin-workbench.active:before {
