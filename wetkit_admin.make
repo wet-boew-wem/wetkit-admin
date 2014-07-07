@@ -11,6 +11,9 @@ projects[admin_menu][subdir] = contrib
 projects[admin_views][version] = 1.3
 projects[admin_views][subdir] = contrib
 
+projects[admin_select][version] = 1.5
+projects[admin_select][subdir] = contrib
+
 projects[backports][version] = 1.0-alpha1
 projects[backports][subdir] = contrib
 

@@ -61,6 +61,7 @@ features[page_manager_handlers][] = node_edit_panel_context
 features[page_manager_pages][] = wetkit_admin_layout_library
 features[page_manager_pages][] = wetkit_admin_page_library
 features[page_manager_pages][] = wetkit_admin_pane_library
+features[variable][] = admin_select_defaults
 features[variable][] = jquery_update_compression_type
 features[variable][] = jquery_update_jquery_admin_version
 features[variable][] = jquery_update_jquery_cdn
