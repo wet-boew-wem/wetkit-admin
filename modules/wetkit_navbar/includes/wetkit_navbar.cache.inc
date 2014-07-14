@@ -33,6 +33,15 @@ function wetkit_navbar_flush_cache($name = NULL) {
   // The JavaScript injects a destination request parameter pointing to the
   // originating page, so the user is redirected back to that page. Without
   // destination parameter, the redirect ends on the front page.
+  $root = trim(url(), '/ ');
+  if(!empty($root) && isset($_GET['destination'])) {
+    $dest = trim($_GET['destination'], '/ ');
+    if(strpos($dest, $root) === 0) {
+      $dest = substr($dest, strlen($root)+1);
+      unset($_GET['destination']);
+      drupal_goto($dest);
+    }
+  }
   drupal_goto();
 }
 
