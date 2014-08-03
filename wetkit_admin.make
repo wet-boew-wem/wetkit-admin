@@ -30,7 +30,7 @@ projects[jquery_update][patch][2123973] = http://drupal.org/files/issues/jquery_
 projects[module_filter][version] = 1.8
 projects[module_filter][subdir] = contrib
 
-; Contrib for WetKit Ember
+; Contrib for WetKit NavBar
 
 projects[escape_admin][version] = 1.1
 projects[escape_admin][subdir] = contrib
