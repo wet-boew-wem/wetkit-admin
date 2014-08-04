@@ -52,3 +52,9 @@ a#navbar-link-admin-workbench.active:before {
 .no-svg .navbar-tray .navbar-icon-flush-cache.active:before {
   background-image: url("../icons/000000/cache.png");
 }
+
+/* Styling Override */
+
+body.navbar-tray-open.navbar-vertical.navbar-fixed #modalContent {
+  margin-left: -250px;
+}
