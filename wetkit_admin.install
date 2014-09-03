@@ -18,3 +18,20 @@ function wetkit_admin_uninstall() {
     }
   }
 }
+
+/**
+ * Implementations of hook_update_N().
+ */
+
+/**
+ *  Enable new modules for 2.x branch.
+ */
+function wetkit_admin_update_7201() {
+  // Enable new module for 2.x branch.
+  $modules = array('admin_select', 'wetkit_navbar');
+  foreach ($modules as $module) {
+    if (!module_exists($module)) {
+      module_enable(array($module));
+    }
+  }
+}
