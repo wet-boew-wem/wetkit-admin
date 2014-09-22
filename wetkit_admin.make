@@ -41,6 +41,7 @@ projects[navbar][download][type] = git
 projects[navbar][download][revision] = de121df
 projects[navbar][download][branch] = 7.x-1.x
 projects[navbar][patch][1937754] = http://drupal.org/files/issues/navbar-fix-table-header-1937754-20.patch
+projects[navbar][patch][2183753] = http://drupal.org/files/issues/navbar-2183753-10-ie-navbar-issue.patch
 
 projects[responsive_preview][version] = 1.x-dev
 projects[responsive_preview][subdir] = contrib
