@@ -187,5 +187,55 @@ function wetkit_navbar_navbar() {
       ),
     );
   }
+
+  // Bean Integration.
+  if (module_exists('bean')) {
+    $types = bean_get_types();
+    $links = array();
+    foreach ($types as $name) {
+      if (user_access('create any ' . $name->type . ' bean')) {
+        $links[] = '<div class="navbar-box">' . l($name->getLabel(), 'block/add/' . $name->buildURL(), array('attributes' => array('class' => array('navbar-menu-item')))) . '</div>';
+      }
+    }
+    if ($links) {
+      array_unshift($links, '<div class="navbar-box">'
+        . l(t('Add bean'), 'bean/add', array(
+            'attributes' => array(
+              'class' => array('navbar-menu-item', 'navbar-icon', 'navbar-icon-content')
+            )
+          ))
+        . '</div>');
+      $items['add_bean'] = array(
+        '#type' => 'navbar_item',
+        'tab' => array(
+          '#type' => 'link',
+          '#title' => t('Add bean'),
+          '#href' => 'bean/add',
+          '#options' => array(
+            'html' => FALSE,
+            'attributes' => array(
+              'title' => t('Add bean'),
+              'class' => array('navbar-icon', 'navbar-icon-add-bean'),
+            ),
+          ),
+        ),
+        'tray' => array(
+          '#heading' => t('Add bean (types)'),
+          'add_bean_menu' => array(
+            '#theme' => 'item_list',
+            '#items' => $links,
+            '#attributes' => array(
+              'class' => array('menu', 'navbar-menu-add-bean', 'navbar-menu-processed', 'navbar-menu-root', 'navbar-root'),
+            )
+          ),
+        ),
+        '#attached' => array(
+          'css' => array(
+            drupal_get_path('module', 'wetkit_navbar') . '/css/wetkit-navbar-add.css',
+          ),
+        ),
+      );
+    }
+  }
   return $items;
 }
