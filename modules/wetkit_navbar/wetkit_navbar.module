@@ -55,6 +55,15 @@ function wetkit_navbar_menu() {
 }
 
 /**
+ * Implements hook_libraries_info_alter().
+ */
+function wetkit_navbar_libraries_info_alter(&$libraries) {
+  // WxT already provides us with Modernizr so we need to
+  // override Navbar's default detection.
+  unset($libraries['modernizr']);
+}
+
+/**
  * Implements hook_menu_alter().
  */
 function wetkit_navbar_menu_alter(&$items) {
