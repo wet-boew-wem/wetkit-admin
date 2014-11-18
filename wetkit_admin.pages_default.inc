@@ -499,6 +499,31 @@ function wetkit_admin_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-1a75c8f6-fd1b-4862-99e0-1aaab819e260';
+    $pane->panel = 'contentmain';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => '',
+      'id' => 'wb-cont',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '1a75c8f6-fd1b-4862-99e0-1aaab819e260';
+    $display->content['new-1a75c8f6-fd1b-4862-99e0-1aaab819e260'] = $pane;
+    $display->panels['contentmain'][0] = 'new-1a75c8f6-fd1b-4862-99e0-1aaab819e260';
+    $pane = new stdClass();
     $pane->pid = 'new-4f3c50c5-6eaf-e134-8d0b-e6e2cc0dc655';
     $pane->panel = 'contentmain';
     $pane->type = 'landing_pages';
@@ -512,11 +537,11 @@ function wetkit_admin_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '4f3c50c5-6eaf-e134-8d0b-e6e2cc0dc655';
     $display->content['new-4f3c50c5-6eaf-e134-8d0b-e6e2cc0dc655'] = $pane;
-    $display->panels['contentmain'][0] = 'new-4f3c50c5-6eaf-e134-8d0b-e6e2cc0dc655';
+    $display->panels['contentmain'][1] = 'new-4f3c50c5-6eaf-e134-8d0b-e6e2cc0dc655';
     $pane = new stdClass();
     $pane->pid = 'new-4debdf1a-8779-eb34-b994-63efbc005454';
     $pane->panel = 'contentmain';
@@ -531,11 +556,11 @@ function wetkit_admin_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '4debdf1a-8779-eb34-b994-63efbc005454';
     $display->content['new-4debdf1a-8779-eb34-b994-63efbc005454'] = $pane;
-    $display->panels['contentmain'][1] = 'new-4debdf1a-8779-eb34-b994-63efbc005454';
+    $display->panels['contentmain'][2] = 'new-4debdf1a-8779-eb34-b994-63efbc005454';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
