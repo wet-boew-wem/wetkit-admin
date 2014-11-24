@@ -32,7 +32,7 @@ projects[module_filter][subdir] = contrib
 
 ; Contrib for WetKit NavBar
 
-projects[escape_admin][version] = 1.1
+projects[escape_admin][version] = 1.2
 projects[escape_admin][subdir] = contrib
 
 projects[navbar][version] = 1.x-dev
