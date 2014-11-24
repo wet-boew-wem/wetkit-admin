@@ -207,7 +207,7 @@ function wetkit_navbar_navbar() {
     }
     if ($links) {
       array_unshift($links, '<div class="navbar-box">'
-        . l(t('Add bean'), 'bean/add', array(
+        . l(t('Add bean'), 'block/add', array(
             'attributes' => array(
               'class' => array('navbar-menu-item', 'navbar-icon', 'navbar-icon-content')
             )
@@ -218,7 +218,7 @@ function wetkit_navbar_navbar() {
         'tab' => array(
           '#type' => 'link',
           '#title' => t('Add bean'),
-          '#href' => 'bean/add',
+          '#href' => 'block/add',
           '#options' => array(
             'html' => FALSE,
             'attributes' => array(
