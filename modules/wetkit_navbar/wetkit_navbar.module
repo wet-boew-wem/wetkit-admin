@@ -30,7 +30,7 @@ function wetkit_navbar_permission() {
  */
 function wetkit_navbar_menu() {
   $items['admin/flush-cache'] = array(
-    'title' => 'Flush Cache',
+    'title' => t('Flush Cache'),
     'page callback' => 'wetkit_navbar_flush_cache',
     'access arguments' => array('flush caches'),
     'file' => 'wetkit_navbar.cache.inc',
