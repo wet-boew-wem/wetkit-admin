@@ -21,6 +21,21 @@ function wetkit_admin_apps_app_info() {
 function wetkit_admin_configure_form($form, &$form_state) {
   $form = array();
 
+  $form['taxonomy_terms_per_page_admin'] = array(
+    '#title' => t('Taxonomy terms per page for admin listings'),
+    '#type' => 'select',
+    '#required' => TRUE,
+    '#options' => array(
+      '100' => '100',
+      '250' => '250',
+      '500' => '500',
+      '1000' => '1000',
+      '2000' => '2000',
+    ),
+    '#default_value' => variable_get('taxonomy_terms_per_page_admin', 100),
+    '#description' => t('How many terms do you want to list on Taxonomy term listings? If set to a higher value than the number of existing terms, the pager will be hidden.'),
+  );
+
   $form['wetkit_admin_machine_name'] = array(
     '#title' => t('Machine Name'),
     '#type' => 'select',
