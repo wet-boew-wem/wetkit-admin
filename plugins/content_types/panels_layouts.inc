@@ -41,7 +41,7 @@ function wetkit_admin_panels_layouts_content_type_render($subtype, $conf, $panel
         $layout_type = t('Default (WetKit)');
       }
       else {
-        $layout_type = 'Custom (Code)';
+        $layout_type = t('Custom (Code)');
       }
 
       $layout_name = $layout_option['name'];
