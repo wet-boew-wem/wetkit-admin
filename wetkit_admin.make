@@ -34,13 +34,8 @@ projects[module_filter][subdir] = contrib
 projects[escape_admin][version] = 1.2
 projects[escape_admin][subdir] = contrib
 
-projects[navbar][version] = 1.x-dev
+projects[navbar][version] = 1.5
 projects[navbar][subdir] = contrib
-projects[navbar][download][type] = git
-projects[navbar][download][revision] = de121df
-projects[navbar][download][branch] = 7.x-1.x
-projects[navbar][patch][1937754] = http://drupal.org/files/issues/navbar-fix-table-header-1937754-30_0.patch
-projects[navbar][patch][2183753] = http://drupal.org/files/issues/navbar-2183753-10-ie-navbar-issue.patch
 projects[navbar][patch][2377149] = http://www.drupal.org/files/issues/navbar_modernizr-2377149-1.patch
 
 projects[responsive_preview][version] = 1.x-dev
