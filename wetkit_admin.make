@@ -38,8 +38,8 @@ projects[navbar][version] = 1.5
 projects[navbar][subdir] = contrib
 projects[navbar][patch][2377149] = http://www.drupal.org/files/issues/navbar_modernizr-2377149-1.patch
 
-projects[responsive_preview][version] = 1.x-dev
+projects[responsive_preview][version] = 1.1
 projects[responsive_preview][subdir] = contrib
-projects[responsive_preview][download][type] = git
-projects[responsive_preview][download][revision] = d741779
-projects[responsive_preview][download][branch] = 7.x-1.x
+projects[responsive_preview][patch][2175453] = http://drupal.org/files/issues/responsive.patch
+projects[responsive_preview][patch][2256131] = http://drupal.org/files/issues/responsive_preview-subdir_site_suport-2256131-1.patch
+projects[responsive_preview][patch][2263209] = http://drupal.org/files/issues/responsive_preview-item_list-new.patch
