@@ -8,7 +8,7 @@ core = 7.x
 projects[admin_menu][version] = 3.0-rc5
 projects[admin_menu][subdir] = contrib
 
-projects[admin_views][version] = 1.3
+projects[admin_views][version] = 1.4
 projects[admin_views][subdir] = contrib
 
 projects[backports][version] = 1.0-alpha1
@@ -24,5 +24,5 @@ projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_
 projects[jquery_update][patch][2056413] = http://drupal.org/files/issues/jquery_update-2056413-08.patch
 projects[jquery_update][patch][2123973] = http://drupal.org/files/issues/jquery_effects_missing-2123973-14.patch
 
-projects[module_filter][version] = 1.8
+projects[module_filter][version] = 2.0
 projects[module_filter][subdir] = contrib
