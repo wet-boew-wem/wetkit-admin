@@ -43,3 +43,4 @@ projects[responsive_preview][subdir] = contrib
 projects[responsive_preview][patch][2175453] = http://drupal.org/files/issues/responsive.patch
 projects[responsive_preview][patch][2256131] = http://drupal.org/files/issues/responsive_preview-subdir_site_suport-2256131-1.patch
 projects[responsive_preview][patch][2263209] = http://drupal.org/files/issues/responsive_preview-item_list-new.patch
+projects[responsive_preview][patch][2434913] = http://drupal.org/files/issues/unable_to_scroll_down-2434913-1.patch
