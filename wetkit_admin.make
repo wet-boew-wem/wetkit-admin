@@ -26,3 +26,4 @@ projects[jquery_update][patch][2123973] = http://drupal.org/files/issues/jquery_
 
 projects[module_filter][version] = 2.0
 projects[module_filter][subdir] = contrib
+projects[module_filter][patch][2445133] = http://drupal.org/files/issues/clear-link-placement-problem-on-modules-admin-page-2445133-1_0.patch
