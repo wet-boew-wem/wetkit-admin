@@ -37,7 +37,7 @@ projects[escape_admin][subdir] = contrib
 
 projects[navbar][version] = 1.5
 projects[navbar][subdir] = contrib
-projects[navbar][patch][2377149] = http://www.drupal.org/files/issues/navbar_modernizr-2377149-1.patch
+projects[navbar][patch][2377149] = http://drupal.org/files/issues/navbar_modernizr-2377149-1.patch
 
 projects[responsive_preview][version] = 1.1
 projects[responsive_preview][subdir] = contrib
