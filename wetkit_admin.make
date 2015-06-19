@@ -20,11 +20,9 @@ projects[backports][subdir] = contrib
 projects[date_popup_authored][version] = 1.2
 projects[date_popup_authored][subdir] = contrib
 
-projects[jquery_update][version] = 2.4
+projects[jquery_update][version] = 2.5
 projects[jquery_update][subdir] = contrib
-projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_update-theme-specific-version-1969244-22.patch
-projects[jquery_update][patch][2056413] = http://drupal.org/files/issues/jquery_update-2056413-08.patch
-projects[jquery_update][patch][2123973] = http://drupal.org/files/issues/jquery_effects_missing-2123973-14.patch
+projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_update-theme-specific-version-1969244-37.patch
 
 projects[module_filter][version] = 2.0
 projects[module_filter][subdir] = contrib
