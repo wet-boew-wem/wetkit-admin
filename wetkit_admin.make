@@ -18,7 +18,7 @@ projects[date_popup_authored][version] = 1.1
 projects[date_popup_authored][subdir] = contrib
 projects[date_popup_authored][patch][2256611] = http://drupal.org/files/issues/hook_form_node_form_alter-2256611-01.patch
 
-projects[jquery_update][version] = 2.5
+projects[jquery_update][version] = 2.6
 projects[jquery_update][subdir] = contrib
 projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_update-theme-specific-version-1969244-37.patch
 
