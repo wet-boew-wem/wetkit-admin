@@ -8,7 +8,7 @@ core = 7.x
 projects[admin_menu][version] = 3.0-rc5
 projects[admin_menu][subdir] = contrib
 
-projects[admin_views][version] = 1.4
+projects[admin_views][version] = 1.5
 projects[admin_views][subdir] = contrib
 
 projects[backports][version] = 1.0-alpha1
