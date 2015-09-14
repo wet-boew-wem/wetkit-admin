@@ -33,9 +33,10 @@ projects[module_filter][patch][2445133] = http://drupal.org/files/issues/clear-l
 projects[escape_admin][version] = 1.2
 projects[escape_admin][subdir] = contrib
 
-projects[navbar][version] = 1.5
+projects[navbar][version] = 1.6
 projects[navbar][subdir] = contrib
 projects[navbar][patch][2377149] = http://drupal.org/files/issues/navbar_modernizr-2377149-1.patch
+projects[navbar][patch][2477473] = http://drupal.org/files/issues/2477473_navbar_narrownavbarwidth_1.patch
 
 projects[responsive_preview][version] = 1.1
 projects[responsive_preview][subdir] = contrib

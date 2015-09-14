@@ -138,6 +138,9 @@ function wetkit_navbar_navbar() {
       ),
       'tray' => array(
         '#heading' => t('Development'),
+        '#wrapper_attributes' => array(
+          'class' => array('navbar-tray-devel'),
+        ),
         'development_menu' => $tree,
       ),
       '#attached' => array(
@@ -180,11 +183,14 @@ function wetkit_navbar_navbar() {
       ),
       'tray' => array(
         '#heading' => t('Add content (types)'),
+        '#wrapper_attributes' => array(
+          'class' => array('navbar-tray-content'),
+        ),
         'add_content_menu' => array(
           '#theme' => 'item_list',
           '#items' => $links,
           '#attributes' => array(
-            'class' => array('menu', 'navbar-menu-add-content', 'navbar-menu-processed', 'navbar-menu-root', 'navbar-root'),
+            'class' => array('navbar-menu', 'navbar-menu-add-content', 'navbar-menu-processed', 'navbar-menu-root', 'navbar-root'),
           )
         ),
       ),
@@ -229,11 +235,14 @@ function wetkit_navbar_navbar() {
         ),
         'tray' => array(
           '#heading' => t('Add bean (types)'),
+          '#wrapper_attributes' => array(
+            'class' => array('navbar-tray-bean'),
+          ),
           'add_bean_menu' => array(
             '#theme' => 'item_list',
             '#items' => $links,
             '#attributes' => array(
-              'class' => array('menu', 'navbar-menu-add-bean', 'navbar-menu-processed', 'navbar-menu-root', 'navbar-root'),
+              'class' => array('navbar-menu', 'navbar-menu-add-bean', 'navbar-menu-processed', 'navbar-menu-root', 'navbar-root'),
             )
           ),
         ),

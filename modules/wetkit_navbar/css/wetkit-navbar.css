@@ -58,3 +58,16 @@ a#navbar-link-admin-workbench.active:before {
 body.navbar-tray-open.navbar-vertical.navbar-fixed #modalContent {
   margin-left: -250px;
 }
+
+body.navbar-tray-open.navbar-vertical.navbar-fixed {
+  margin-left: 20rem;
+}
+
+#navbar-administration.navbar-oriented .navbar-tray-vertical {
+  width: 20rem;
+}
+
+body.navbar-tray-open.navbar-fixed.navbar-vertical #navbar-administration.navbar-oriented {
+  width: 20rem;
+}
+

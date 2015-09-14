@@ -35,3 +35,13 @@ function wetkit_admin_update_7401() {
     }
   }
 }
+
+/**
+ * Remove the escape_admin contrib module ported to navbar.
+ */
+function wetkit_admin_update_7402() {
+  if (module_exists('escape_admin')) {
+    module_disable(array('escape_admin'));
+    drupal_uninstall_modules(array('escape_admin'));
+  }
+}
