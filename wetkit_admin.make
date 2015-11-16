@@ -17,7 +17,7 @@ projects[backports][subdir] = contrib
 projects[date_popup_authored][version] = 1.2
 projects[date_popup_authored][subdir] = contrib
 
-projects[jquery_update][version] = 2.6
+projects[jquery_update][version] = 2.7
 projects[jquery_update][subdir] = contrib
 projects[jquery_update][patch][1969244] = http://drupal.org/files/issues/jquery_update-theme-specific-version-1969244-37.patch
 
