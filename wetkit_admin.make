@@ -30,9 +30,6 @@ projects[module_filter][patch][2445133] = http://drupal.org/files/issues/clear-l
 
 ; Contrib for WetKit NavBar
 
-projects[escape_admin][version] = 1.2
-projects[escape_admin][subdir] = contrib
-
 projects[navbar][version] = 1.7
 projects[navbar][subdir] = contrib
 projects[navbar][patch][2377149] = http://drupal.org/files/issues/navbar_modernizr-2377149-1.patch
