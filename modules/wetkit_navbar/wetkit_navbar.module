@@ -156,6 +156,9 @@ function wetkit_navbar_navbar() {
   $types = node_type_get_names();
   $links = array();
   foreach ($types as $machine_name => $name) {
+    if (module_exists('i18n')) {
+      $name = i18n_node_type_name($machine_name, $name);
+    }
     if (user_access('create ' . $machine_name . ' content')) {
       $links[] = '<div class="navbar-box">' . l($name, 'node/add/' . str_replace('_', '-', $machine_name), array('attributes' => array('class' => array('navbar-menu-item')))) . '</div>';
     }
