@@ -33,6 +33,7 @@ projects[module_filter][patch][2445133] = http://drupal.org/files/issues/clear-l
 projects[navbar][version] = 1.7
 projects[navbar][subdir] = contrib
 projects[navbar][patch][2377149] = http://drupal.org/files/issues/navbar_modernizr-2377149-1.patch
+projects[navbar][patch][2644930] = http://drupal.org/files/issues/navbar_link_language-2644930-3.patch
 
 projects[responsive_preview][version] = 1.1
 projects[responsive_preview][subdir] = contrib
