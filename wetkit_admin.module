@@ -211,7 +211,7 @@ function wetkit_admin_form_alter(&$form, &$form_state, $form_id) {
   }
 
   // Hide the featured category field if there are no featured category options.
-  if (!empty($form['field_featured_categories']) && $form['field_featured_categories'][LANGUAGE_NONE]['#type'] != 'textfield') {
+  if (!empty($form['field_featured_categories']) && isset($form['field_featured_categories'][LANGUAGE_NONE]) && $form['field_featured_categories'][LANGUAGE_NONE]['#type'] != 'textfield') {
     if (count($form['field_featured_categories'][LANGUAGE_NONE]['#options']) == 0 || (!empty($form['field_featured_categories'][LANGUAGE_NONE]['#options']['_none']) && count($form['field_featured_categories'][LANGUAGE_NONE]['#options']) == 1)) {
       $form['field_featured_categories']['#access'] = FALSE;
     }
