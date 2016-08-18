@@ -43,6 +43,8 @@ function wetkit_admin_default_page_manager_handlers() {
   $display->cache = array();
   $display->title = '';
   $display->uuid = 'fb7f3c23-61e8-0294-b9c0-340267aa4f4a';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'node_edit_panel_context';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
@@ -371,6 +373,8 @@ function wetkit_admin_default_page_manager_pages() {
   $display->cache = array();
   $display->title = 'Layout Library';
   $display->uuid = '98ffc912-d16f-3924-7980-a008c64b3a21';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'page_wetkit_admin_layout_library_panel_context';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
@@ -482,6 +486,8 @@ function wetkit_admin_default_page_manager_pages() {
   $display->cache = array();
   $display->title = 'Page Library';
   $display->uuid = '8c75ee38-3ae8-8464-4525-e30e8d67b462';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'page_wetkit_admin_page_library_panel_context';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
@@ -637,6 +643,8 @@ function wetkit_admin_default_page_manager_pages() {
   $display->cache = array();
   $display->title = 'Pane Library';
   $display->uuid = '45b222ae-1279-2ba4-d590-a091b11bc4db';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'page_wetkit_admin_pane_library_panel_context';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();

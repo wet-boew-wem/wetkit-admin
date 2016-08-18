@@ -589,13 +589,6 @@ function wetkit_admin_defaultconfig_views_default_views() {
       'override_label' => 1,
       'label' => 'Delete',
     ),
-    'action::views_bulk_operations_script_action' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
     'action::node_make_sticky_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
@@ -621,15 +614,6 @@ function wetkit_admin_defaultconfig_views_default_views() {
         'display_values' => array(
           '_all_' => '_all_',
         ),
-      ),
-    ),
-    'action::views_bulk_operations_argument_selector_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'settings' => array(
-        'url' => '',
       ),
     ),
     'action::node_promote_action' => array(
@@ -660,13 +644,6 @@ function wetkit_admin_defaultconfig_views_default_views() {
       'override_label' => 1,
       'label' => 'Save content',
     ),
-    'action::system_send_email_action' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
     'action::workbench_moderation_set_state_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
@@ -674,26 +651,12 @@ function wetkit_admin_defaultconfig_views_default_views() {
       'override_label' => 1,
       'label' => 'Set moderation state',
     ),
-    'action::panelizer_set_status_action' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
     'action::node_unpublish_action' => array(
       'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
       'label' => 'Unpublish',
-    ),
-    'action::node_unpublish_by_keyword_action' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
     ),
     'action::pathauto_node_update_action' => array(
       'selected' => 1,
